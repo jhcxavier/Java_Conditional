@@ -51,10 +51,10 @@ public class Main {
     };
     public static void main(String[] args){
 //        for loop
+//        To make this code reusable I'll extract that code to a new method.
+//        IntelliJ IDEA has tools that let you do this easily. It's a process called refactor.
+        loopMonths();
 
-//        for (int i = 0; i <months.length ; i++) {
-//            System.out.println(months[i]);
-//        }
 
 //        foreach loop
 
@@ -71,14 +71,20 @@ public class Main {
 //        }
 
 //        do while loop
-        int counter = 0;
-        do {
-            System.out.println(months[counter]);
-         counter ++;
-         if(counter == 5){
-             break;
-         }
-        }while(counter < months.length);
+//        int counter = 0;
+//        do {
+//            System.out.println(months[counter]);
+//         counter ++;
+//         if(counter == 5){
+//             break;
+//         }
+//        }while(counter < months.length);
 
+    }
+
+    private static void loopMonths() {
+        for (int i = 0; i <months.length ; i++) {
+            System.out.println(months[i]);
+        }
     }
 }
