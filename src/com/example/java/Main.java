@@ -9,6 +9,9 @@ public class Main {
         String s2 = getInput("Enter value 2: ");
         double result = addValues(s1, s2);
         System.out.println("The result is: "+ result);
+
+        double result2 = addValues(s1,s1,s1,s2);
+        System.out.println("The answer for multiple values is: " + result2);
     }
 
     private static String getInput(String prompt) {
@@ -16,12 +19,30 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         return scanner.nextLine();
     }
-
+// *The first time I'm calling this method because there are two arguments
     private static double addValues(String s1, String s2) {
         double d1 = Double.parseDouble(s1);
         double d2 = Double.parseDouble(s2);
         return d1 + d2;
     }
+
+//So now I have two different methods, both called addValues,
+// and which one is called will be based on how many values I pass in when I call it.
+//    *The second time I'm calling this method because there are multiple values
+    private static double addValues(String... values) {
+       double result = 0;
+        for (String str:
+             values) {
+            double d = Double.parseDouble(str);
+            result += d;
+        }
+        return result;
+    }
+//     You can distinguish between the methods either by the quantity of the arguments,
+//     or by the types. And Java's compiler and runtime are smart enough to figure out
+//     which of the methods you're intending to call.
+
+
 //    public static void main(String[] args) {
 //
 ////        If / else
