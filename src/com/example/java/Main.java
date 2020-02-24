@@ -1,6 +1,8 @@
 package com.example.java;
 //import java.util.Scanner;
 
+import java.util.Scanner;
+
 public class Main {
 
 //    public static void main(String[] args) {
@@ -53,9 +55,28 @@ public class Main {
 //        for loop
 //        To make this code reusable I'll extract that code to a new method.
 //        IntelliJ IDEA has tools that let you do this easily. It's a process called refactor.
-        loopMonths();
+//        loopMonths();
 
+//         So this is a reasonable bit of code that does some really good work for me.
+//         It loops through the list of months, matches the value that was passed in, and if found,
+//         returns the equivalent number or returns a value of minus one if that number isn't found.
 
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+            System.out.print("Enter a month: ");
+            String monthNAme = scanner.nextLine();
+            if(monthNAme.length() == 0){
+                break;
+            }
+            int monthNumber = getMonthNumber(monthNAme);
+            if (monthNumber == -1) {
+                System.out.println("Month not found");
+            } else {
+                System.out.println(String.format(
+                        "%s is month number %d", monthNAme, monthNumber + 1
+                ));
+            }
+        }
 //        foreach loop
 
 //        for (String month:
@@ -86,5 +107,13 @@ public class Main {
         for (int i = 0; i <months.length ; i++) {
             System.out.println(months[i]);
         }
+    }
+    private static int getMonthNumber(String monthName) {
+        for (int i = 0; i <months.length ; i++) {
+            if (monthName.equalsIgnoreCase(months[i])) {
+                return i;
+            }
+        }
+        return -1;
     }
 }
