@@ -75,6 +75,9 @@ public class Main {
         do {
             System.out.println(months[counter]);
          counter ++;
+         if(counter == 5){
+             break;
+         }
         }while(counter < months.length);
 
     }
